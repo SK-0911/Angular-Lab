@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <title>Expressions</title>
+</head>
+<body>
+<h1>Sample Application for Directives</h1>
+
+  <div ng-app = "" ng-init="schools =
+  [{short: 'STME', name: 'School of Tech, Management & Engineering'}, {short: 'SBM', name: 'School of Business Management'}, {short: 'SOHM', name: 'School of Hospitality'}]">
+
+  <p>Enter your name: <input type="text" ng-model="name"></p>
+  <p>Hello <span ng-bind="name"></span>!</p>
+  <p>List of Schools in NMIMS:</p>
+  <ol>
+    <li ng-repeat = "school in schools">
+      {{'School: ' + school.name + ', Short Form: ' + school.short}}
+    </li>
+  </ol>
+</div>
+
+</body>
+</html>

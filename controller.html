@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <title>Controllers</title>
+</head>
+<body ng-app = "myApp">
+<h1>Sample Application for Controller</h1>
+
+<div ng-controller = "HelloController">
+  <h3>Welcome to {{x.title}} Kharghar, Navi Mumbai</h3>
+</div>
+<script >
+  angular.module("myApp", []).controller("HelloController", function ($scope){
+    $scope.x = {};
+    $scope.x.title = "STME";
+  })
+</script>
+</body>
+</html>

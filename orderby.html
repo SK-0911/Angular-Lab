@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <title>Title</title>
+</head>
+<body>
+  <p>Click to sort</p>
+  <div ng-app="app" ng-controller="namesCtrl">
+      <input type="text" ng-model="test">
+<!--      <input type="text" ng-model="test">-->
+      <table border="1" width="100%">
+          <tr>
+              <th ng-click="orderByMe('name')">Name </th>
+              <th ng-click="orderByMe('country')">Country</th>
+          </tr>
+
+          <tr ng-repeat="x in names | orderBy: myOrderBy | filter:test">
+              <td>{{x.name}}</td>
+              <td>{{x.country}}</td>
+          </tr>
+      </table>
+  </div>
+
+<script>
+    angular.module('app', []).controller('namesCtrl', function ($scope){
+        $scope.names = [
+            {name: 'Vishwa', country: 'Papua New Guinea'},
+            {name: 'Jack', country: 'Sweden'},
+            {name: 'Gayatri', country: 'Papua New Guinea'},
+            {name: 'Shubham', country: 'Thailand'},
+            {name: 'Mayur', country: 'England'},
+            {name: 'Priyanshi', country: 'Denmark'},
+        ];
+        $scope.orderByMe = function (x){
+            $scope.myOrderBy = x;
+        }
+    })
+</script>
+
+</body>
+</html>

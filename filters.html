@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <title>Title</title>
+</head>
+<body>
+  <div ng-app = "mainApp" ng-controller = "studentController">
+      <table>
+          <tr>
+              <td>Enter first name: </td>
+              <td><input type="text" ng-model = "student.firstname"></td>
+          </tr>
+          <tr>
+              <td>Enter last name: </td>
+              <td><input type="text" ng-model = "student.lastname"></td>
+          </tr>
+          <tr>
+              <td>fees: </td>
+              <td><input type="text" ng-model = "student.fees"></td>
+          </tr>
+      </table>
+
+      <table border="0">
+          <tr>
+              <td>Name in upper case: </td>
+              <td><b>{{student.fullName() | uppercase}}</b></td>
+          </tr>
+          <tr>
+              <td>Name in lower case: </td>
+              <td><b>{{student.fullName() | lowercase}}</b></td>
+          </tr>
+          <tr>
+              <td>fees: </td>
+              <td><b>{{student.fees | currency: "Rs "}}</b></td>
+          </tr>
+      </table>
+  </div>
+
+  <script>
+      var main = angular.module("mainApp", []);
+
+      main.controller('studentController', function ($scope){
+          $scope.student = {
+              firstname: "Harry",
+              lastname: "Potter",
+              fees: 5000,
+
+              fullName: function (){
+                  var studentObj = $scope.student;
+                  return studentObj.firstname + " " + studentObj.lastname;
+              }
+          }
+      })
+  </script>
+</body>
+</html>
